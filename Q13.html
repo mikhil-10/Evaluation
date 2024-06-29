@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="form">
+        Name:
+        <input type="text" id="name"><br>
+
+        Password:
+        <input type="password" id="pass"><br>
+
+        Email:
+        <input type="text" id="mail"><br>
+
+        <button type="submit">submit</button>
+
+    </form>
+</body>
+<script>
+
+    const form = document.getElementById("form");
+    form.addEventListener("submit", (event) => {
+
+        const name = document.getElementById("name").value;
+        const pass = document.getElementById("pass").value;
+        const mail = document.getElementById("mail").value;
+
+        if (!/^[a-zA-Z]+$/.test(name)) {
+            alert("Invalid Name");
+        }
+
+        if (!/^[^\s@]+@[^\s]+\.[^\s]+$/.test(mail)) {
+            alert("Invalid Email");
+        }
+
+        if (pass.length < 6 || 
+        !/[a-z]/.test(pass) || 
+        !/[A-Z]/.test(pass) || 
+        !/\d/.test(pass)) {
+            alert("Invalid Password Format");
+        }
+
+    })
+
+</script>
+
+</html>
